@@ -1,5 +1,5 @@
 // pages/TouristVenues.js
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import LocationList from '../components/LocationList2';
 
 const VenueList = () => (
