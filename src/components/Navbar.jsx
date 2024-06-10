@@ -17,7 +17,7 @@ const navigation = [
   { name: 'Tourist Venues', href: '/tourist-venues', current: false },
   { name: 'Animal Map', href: '/animal-map', current: false },
   { name: 'Helpline', href: '/helpline', current: false },
-  { name: 'About', href: '/about', current: false },
+  { name: 'About Us', href: '/about', current: false },
 ];
 
 function classNames(...classes) {

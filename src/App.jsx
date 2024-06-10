@@ -8,6 +8,9 @@ import AboutPage from './pages/AboutPage';
 import AnimalMapPage from './pages/AnimalMapPage';
 import TouristVenuesPage from './pages/TouristVenuesPage';
 import DashboardPage from './pages/DashboardPage';
+import HelplinePage from './pages/HelplinePage';
+
+
 
 const App = () => (
   <Router>
@@ -19,6 +22,7 @@ const App = () => (
         <Route path="/animal-map" element={<AnimalMapPage />} />
         <Route path="/tourist-venues" element={<TouristVenuesPage />} />
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/helpline" element={<HelplinePage />} />
       </Routes>
     </Layout>
   </Router>
