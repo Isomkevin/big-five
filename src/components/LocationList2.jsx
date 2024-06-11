@@ -197,7 +197,7 @@ const parks = [
 
 export default function TouristVenue() {
   const handleCardClick = (parkName) => {
-    alert(`You clicked on ${parkName}`);
+    alert(`Welcome to ${parkName}`);
     // Here you can also navigate to a detailed page or perform other actions
   };
 
