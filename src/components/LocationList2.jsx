@@ -79,9 +79,7 @@ const parks = [
     name: 'Chobe National Park',
     location: 'Botswana',
     imageUrl:
-      'https://images.unsplash.com/photo-1600186571294-ec3c6f3d29e9?q=80&w=1080&auto=format&fit=crop', 
-    altImageUrl: 
-      'https://th.bing.com/th/id/R.f98b18324351ac14f0a8cffa72f80d72?rik=gHZY%2f%2biEpLpO8g&pid=ImgRaw&r=0',
+      'https://www.chobe.com/assets/img/savute-safari-lodge-chobe-botswana.jpg',
     animals: ['Elephants', 'Lions', 'Buffalo', 'Hippos'],
     bestTimeToVisit: 'May to October',
     activities: ['Game drives', 'Boat safaris', 'Bird watching'],
