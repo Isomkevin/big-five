@@ -196,12 +196,19 @@ const parks = [
 
 
 export default function TouristVenue() {
+  const handleCardClick = (parkName) => {
+    alert(`You clicked on ${parkName}`);
+    // Here you can also navigate to a detailed page or perform other actions
+  };
+
+
   return (
     <div className="grid grid-cols-1 gap-6 p-6 sm:grid-cols-2 lg:grid-cols-3">
       {parks.map((park) => (
         <div
           key={park.name}
           className="overflow-hidden rounded-lg bg-white shadow-md transition transform hover:scale-105 hover:shadow-lg"
+          onClick={() => handleCardClick(park.name)}
         >
           <img
             className="w-full h-48 object-cover"
