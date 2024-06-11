@@ -13,12 +13,16 @@ import Navbar from './Navbar';
 const Layout = ({ children }) => {
   return (
     <Flex direction="column" minH="100vh" w="auto">
-      <Navbar />
-      <Container bg="gray.200" maxW="container.md" flex="0.5">
-        <VStack spacing={0.5} align="stretch">
-          {children}
-        </VStack>
-      </Container>
+      <Box position="fixed" top={0} left={0} right={0} zIndex={10}>
+        <Navbar />
+      </Box>
+      <Box pt="64px" flex="1">
+        <Container bg="gray.200" maxW="container.md">
+          <VStack spacing={0.5} align="stretch">
+            {children}
+          </VStack>
+        </Container>
+      </Box>
       <Footer />
     </Flex>
   );
