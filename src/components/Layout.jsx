@@ -43,3 +43,4 @@ export const Footer = () => (
     <Text>&copy; {new Date().getFullYear()} Big5. All rights reserved.</Text>
   </Box>
 );
+
