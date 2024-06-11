@@ -117,7 +117,7 @@ const parks = [
     name: 'Addo Elephant National Park',
     location: 'South Africa',
     imageUrl:
-      'https://th.bing.com/th/id/R.d456493c3ef56a0d0a95a71e8ad8ecb3?rik=1RThk%2fsG8uiyQQ&riu=http%3a%2f%2fimg.ev.mu%2fimages%2fattractions%2f60%2f960x640%2f8269.jpg&ehk=nPRE%2f2q0beSf09NlGveq5OEydSWJkf0MgWlK%2b49FxwE%3d&risl=&pid=ImgRaw&r=0',
+      'https://th.bing.com/th/id/OIP.4aqMB_H9XKcLxUB7ZioWCgHaFS?rs=1&pid=ImgDetMain',
     animals: ['Elephants', 'Lions', 'Buffalo', 'Leopards'],
     bestTimeToVisit: 'April to September',
     activities: ['Game drives', 'Hiking', 'Bird watching'],
@@ -162,7 +162,7 @@ const parks = [
     name: 'Tsavo National Park',
     location: 'Kenya',
     imageUrl:
-      'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1080&auto=format&fit=crop',
+      'https://www.habariugandatours.com/wp-content/uploads/2020/11/Tsavo-East-National-Park.jpg',
     animals: ['Elephants', 'Lions', 'Giraffes', 'Hippos'],
     bestTimeToVisit: 'June to October',
     activities: ['Game drives', 'Bird watching', 'Hiking'],
@@ -171,7 +171,7 @@ const parks = [
     name: 'Ranthambore National Park',
     location: 'India',
     imageUrl:
-      'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=1080&auto=format&fit=crop',
+      'https://th.bing.com/th/id/OIP.O2bJSMQXsc6y7AKLB3FaRAHaFj?rs=1&pid=ImgDetMain',
     animals: ['Tigers', 'Leopards', 'Sloth Bears', 'Deer'],
     bestTimeToVisit: 'October to June',
     activities: ['Game drives', 'Bird watching', 'Photography'],
@@ -180,7 +180,7 @@ const parks = [
     name: 'Bandhavgarh National Park',
     location: 'India',
     imageUrl:
-      'https://images.unsplash.com/photo-1582719478146-5c2b47645b99?q=80&w=1080&auto=format&fit=crop',
+      'https://static.toiimg.com/photo/msid-98361236,width-96,height-65.cms',
     animals: ['Tigers', 'Leopards', 'Deer', 'Birds'],
     bestTimeToVisit: 'October to June',
     activities: ['Game drives', 'Bird watching', 'Photography'],
@@ -189,8 +189,8 @@ const parks = [
     name: 'Yala National Park',
     location: 'Sri Lanka',
     imageUrl:
-      'https://images.unsplash.com/photo-1576581179075-1e99c88d09c5?q=80&w=1080&auto=format&fit=crop',
-    animals: ['Leopards', 'Elephants', 'Crocodiles', 'Birds'],
+      'https://th.bing.com/th/id/OIP.f2uAIUQWNvsge8ERsavXIQHaEK?rs=1&pid=ImgDetMain',
+    animals: ['Leopards', 'Elephants', 'Crocodiles', 'Birds', 'Tigers'],
     bestTimeToVisit: 'February to June',
     activities: ['Game drives', 'Bird watching', 'Photography'],
   },
