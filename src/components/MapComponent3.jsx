@@ -1,5 +1,4 @@
 // MapComponent3.js
-
 import { useEffect, useRef } from "react";
 import leaflet from "leaflet";
 import useLocalStorage from "../hooks/useLocalStorage";

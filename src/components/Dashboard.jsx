@@ -39,7 +39,7 @@ export default function DashboardComponent() {
           <Link to="#">
             <a className="flex items-center gap-2 text-lg font-semibold md:text-base">
               <CurrencyDollarIcon className="h-6 w-6" />
-              <span className="sr-only">Acme Inc</span>
+              <span className="sr-only">Big Five</span>
             </a>
           </Link>
           <Link to="#">
