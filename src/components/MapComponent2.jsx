@@ -1,5 +1,4 @@
 // MapComponent2.js
-// MapComponent2.js
 import React, { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import leaflet from "leaflet";
