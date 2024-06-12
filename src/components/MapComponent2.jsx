@@ -7,6 +7,22 @@ import useGeolocation from "../hooks/useGeolocation";
 export default function Map() {
   const mapRef = useRef(null);
   const userMarkerRef = useRef(null);
+  // Icon options
+  const iconOptions = {
+    iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
+    iconSize: [36, 36]
+  }
+
+  // Creating a custom icon
+  var customIcon = leaflet.icon(iconOptions);
+
+  const markerOptions = {
+    title: "MyLocation",
+    clickable: true,
+    draggable: true,
+    icon: customIcon
+ }
+
 
   const [userPosition, setUserPosition] = useLocalStorage("USER_MARKER", {
     latitude: 0,
@@ -27,7 +43,7 @@ export default function Map() {
 
       mapRef.current.on("click", (e) => {
         const { lat: latitude, lng: longitude } = e.latlng;
-        leaflet.marker([latitude, longitude])
+        leaflet.marker([latitude, longitude], markerOptions)
           .addTo(mapRef.current)
           .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
 
@@ -41,7 +57,7 @@ export default function Map() {
 
   useEffect(() => {
     nearbyMarkers.forEach(({ latitude, longitude }) => {
-      leaflet.marker([latitude, longitude])
+      leaflet.marker([latitude, longitude], markerOptions)
         .addTo(mapRef.current)
         .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
     });
