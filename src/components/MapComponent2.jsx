@@ -1,6 +1,6 @@
 // MapComponent2.js
-
-import { useEffect, useRef } from "react";
+// MapComponent2.js
+import React, { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
 import leaflet from "leaflet";
 import useLocalStorage from "../hooks/useLocalStorage";
@@ -44,7 +44,7 @@ export default function Map() {
         );
     });
 
-    mapRef.current.addEventListener("click", (e) => {
+    mapRef.current.on("click", (e) => {
       const { lat: latitude, lng: longitude } = e.latlng;
       leaflet
         .marker([latitude, longitude])
@@ -58,10 +58,12 @@ export default function Map() {
         { latitude, longitude },
       ]);
     });
-  }, []);
+  }, [nearbyMarkers, setNearbyMarkers, userPosition.latitude, userPosition.longitude]);
 
   useEffect(() => {
-    setUserPosition({ ...userPosition });
+    if (!location.latitude || !location.longitude) return;
+
+    setUserPosition({ latitude: location.latitude, longitude: location.longitude });
 
     if (userMarkerRef.current) {
       mapRef.current.removeLayer(userMarkerRef.current);
@@ -78,6 +80,7 @@ export default function Map() {
     }
 
     mapRef.current.setView([location.latitude, location.longitude]);
-  }, [location, userPosition.latitude, userPosition.longitude]);
-  return <div id="map" ref={mapRef}></div>;
+  }, [location, setUserPosition]);
+
+  return <div id="map" style={{ height: "100vh" }}></div>;
 }
