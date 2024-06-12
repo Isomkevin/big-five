@@ -1,4 +1,4 @@
-// MapComponent3.js
+// MapComponent2.js
 
 import { useEffect, useRef } from "react";
 import "leaflet/dist/leaflet.css";
