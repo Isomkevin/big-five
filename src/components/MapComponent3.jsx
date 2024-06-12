@@ -1,5 +1,8 @@
-// MapComponent3.js
+// MapComponent3.jsx
 import { useEffect, useRef } from "react";
+
+// import "./styles.css";
+import "leaflet/dist/leaflet.css";
 import leaflet from "leaflet";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useGeolocation from "../hooks/useGeolocation";

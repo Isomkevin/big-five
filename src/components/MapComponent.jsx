@@ -7,6 +7,9 @@ import {
   Popup,
   useMapEvents,
 } from 'react-leaflet';
+import "./MapStyle.css";
+import "leaflet/dist/leaflet.css";
+
 
 function LocationMarker() {
   const [position, setPosition] = useState(null);
