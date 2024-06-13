@@ -1,6 +1,6 @@
 // pages/AnimalMapPage.js
 import { Box } from '@chakra-ui/react';
-import AnimalMap from '../components/MapCreatorComponent';
+import AnimalMap from '../components/MapViewerComponent2';
 
 
 const testMarkerData = [
