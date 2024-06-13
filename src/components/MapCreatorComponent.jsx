@@ -4,6 +4,27 @@ import leaflet from "leaflet";
 import useLocalStorage from "../hooks/useLocalStorage";
 import useGeolocation from "../hooks/useGeolocation";
 
+// Custom Button Component
+const CustomButton = ({ onClick, children }) => (
+  <button
+    style={{
+      position: "absolute",
+      top: "3px",
+      left: "75%",
+      zIndex: 1000,
+      backgroundColor: "gray", // Replace with your desired background color
+      color: "white", // Optionally set text color
+      padding: "5px", // Optional padding for button content
+      borderRadius: "5px", // Optional border radius
+      border: "none", // Optional remove border
+    }}
+    onClick={onClick}
+  >
+    {children}
+  </button>
+);
+
+
 export default function Map() {
   const mapRef = useRef(null);
   const userMarkerRef = useRef(null);
@@ -22,14 +43,14 @@ export default function Map() {
   const markerOptions1 = {
     title: "CurrentLocation",
     clickable: true,
-    draggable: false,
+    draggable: true,
     icon: customIcon1,
   };
 
   const markerOptions2 = {
     title: "OtherLocation",
     clickable: true,
-    draggable: false,
+    draggable: true,
     icon: customIcon2,
   };
 
@@ -133,11 +154,11 @@ export default function Map() {
   };
 
   return (
-    <div>
-      <div id="map" style={{ height: "100vh" }}></div>
-      <button onClick={handleClearAllMarkers}>Clear All Markers</button>
-      <button onClick={handleClearUserMarker}>Clear User Marker</button>
-      <button onClick={clearLocalStorage}>Clear All Local Storage</button>
+    <div style={{ position: "relative", height: "100vh" }}>
+      <div id="map" style={{ height: "100%" }}></div>
+      
+      {/* Custom Buttons */}
+      <CustomButton onClick={handleClearAllMarkers}>Clear Markers</CustomButton>
     </div>
   );
 }
