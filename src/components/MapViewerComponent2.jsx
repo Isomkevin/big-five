@@ -51,63 +51,19 @@ export default function Map({ markerData }) {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
 
-      // Add custom buttons
-      const customControl = leaflet.Control.extend({
-        options: {
-          position: 'topright' // position of the control
-        },
-        onAdd: function () {
-          const container = leaflet.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-          container.style.backgroundColor = 'white';
-          container.style.width = '40px';
-          container.style.height = '40px';
-          container.style.cursor = 'pointer';
-          container.title = 'Home Button';
-
-          container.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/128/25/25694.png" style="width: 28px; height: 28px; margin: 5px;"/>';
-
-          container.onclick = function () {
-            alert('Button clicked!');
-          };
-
-          return container;
-        },
-        onRemove: function () {
-          // Nothing to do here
-        }
+      addCustomControl(map, 'topright', 'Home Button', 'https://cdn-icons-png.flaticon.com/128/25/25694.png', () => {
+        alert('Home Button clicked!');
       });
 
-      // Add the custom control to the map
-      map.addControl(new customControl());
-
-      // You can add more controls if needed
-      const anotherControl = leaflet.Control.extend({
-        options: {
-          position: 'topright'
-        },
-        onAdd: function () {
-          const container = leaflet.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
-          container.style.backgroundColor = 'white';
-          container.style.width = '40px';
-          container.style.height = '40px';
-          container.style.cursor = 'pointer';
-          container.title = 'Clear Markers';
-
-          container.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/128/4931/4931455.png" style="width: 28px; height: 28px; margin: 5px;"/>';
-
-          container.onclick = function () {
-            alert('Another button clicked!');
-          };
-
-          return container;
-        },
-        onRemove: function () {
-          // Nothing to do here
-        }
+      addCustomControl(map, 'topright', 'Clear Markers', 'https://cdn-icons-png.flaticon.com/128/4931/4931455.png', () => {
+        alert('Clear Markers button clicked!');
       });
-
-      map.addControl(new anotherControl());
     }
+    return () => {
+      if (mapRef.current) {
+        mapRef.current.remove();
+      }
+    };
   }, [userPosition.latitude, userPosition.longitude]);
 
   useEffect(() => {
@@ -138,6 +94,33 @@ export default function Map({ markerData }) {
         .bindPopup(popUp);
     });
   }, [markerData]);
+
+  const addCustomControl = (map, position, title, iconUrl, onClick) => {
+    const CustomControl = leaflet.Control.extend({
+      options: {
+        position: position
+      },
+      onAdd: function () {
+        const container = leaflet.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+        container.style.backgroundColor = 'white';
+        container.style.width = '40px';
+        container.style.height = '40px';
+        container.style.cursor = 'pointer';
+        container.title = title;
+
+        container.innerHTML = `<img src="${iconUrl}" style="width: 28px; height: 28px; margin: 5px;"/>`;
+
+        container.onclick = onClick;
+
+        return container;
+      },
+      onRemove: function () {
+        // Nothing to do here
+      }
+    });
+
+    map.addControl(new CustomControl());
+  };
 
   return <div id="map" style={{ height: "100vh" }}></div>;
 }
