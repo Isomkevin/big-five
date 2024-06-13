@@ -22,14 +22,14 @@ export default function Map() {
   const markerOptions1 = {
     title: "CurrentLocation",
     clickable: true,
-    draggable: true,
+    draggable: false,
     icon: customIcon1,
   };
 
   const markerOptions2 = {
     title: "OtherLocation",
     clickable: true,
-    draggable: true,
+    draggable: false,
     icon: customIcon2,
   };
 

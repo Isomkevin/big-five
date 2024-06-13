@@ -29,7 +29,7 @@ export default function Map({ markerData }) {
   const markerOptions2 = {
     title: "OtherLocation",
     clickable: true,
-    draggable: true,
+    draggable: false,
     icon: customIcon2,
   };
 
@@ -50,6 +50,63 @@ export default function Map({ markerData }) {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
+
+      // Add custom buttons
+      const customControl = leaflet.Control.extend({
+        options: {
+          position: 'topright' // position of the control
+        },
+        onAdd: function () {
+          const container = leaflet.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+          container.style.backgroundColor = 'white';
+          container.style.width = '30px';
+          container.style.height = '30px';
+          container.style.cursor = 'pointer';
+          container.title = 'Custom Button';
+
+          container.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/128/25/25694.png" style="width: 20px; height: 20px; margin-top: 5px;"/>';
+
+          container.onclick = function () {
+            alert('Button clicked!');
+          };
+
+          return container;
+        },
+        onRemove: function () {
+          // Nothing to do here
+        }
+      });
+
+      // Add the custom control to the map
+      map.addControl(new customControl());
+
+      // You can add more controls if needed
+      const anotherControl = leaflet.Control.extend({
+        options: {
+          position: 'topright'
+        },
+        onAdd: function () {
+          const container = leaflet.DomUtil.create('div', 'leaflet-bar leaflet-control leaflet-control-custom');
+          container.style.backgroundColor = 'white';
+          container.style.width = '30px';
+          container.style.height = '30px';
+          container.style.cursor = 'pointer';
+          container.title = 'Another Button';
+
+          container.innerHTML = '<img src="https://cdn-icons-png.flaticon.com/128/61/61112.png" style="width: 20px; height: 20px; margin-top: 5px;"/>';
+
+          container.onclick = function () {
+            alert('Another button clicked!');
+          };
+
+          return container;
+        },
+        onRemove: function () {
+          // Nothing to do here
+        }
+      });
+
+      map.addControl(new anotherControl());
     }
   }, [userPosition.latitude, userPosition.longitude]);
 
@@ -84,5 +141,3 @@ export default function Map({ markerData }) {
 
   return <div id="map" style={{ height: "100vh" }}></div>;
 }
-
-
