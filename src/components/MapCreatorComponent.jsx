@@ -7,10 +7,9 @@ import useGeolocation from "../hooks/useGeolocation";
 export default function Map() {
   const mapRef = useRef(null);
   const userMarkerRef = useRef(null);
+
   // Custom Icon options
   const customIcon1 = leaflet.icon({
-    // iconUrl: 'https://cdn-icons-png.flaticon.com/128/15615/15615194.png',
-    // iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
     iconUrl: 'https://cdn-icons-png.flaticon.com/128/2702/2702604.png',
     iconSize: [36, 36],
   });
@@ -138,6 +137,7 @@ export default function Map() {
       <div id="map" style={{ height: "100vh" }}></div>
       <button onClick={handleClearAllMarkers}>Clear All Markers</button>
       <button onClick={handleClearUserMarker}>Clear User Marker</button>
+      <button onClick={clearLocalStorage}>Clear All Local Storage</button>
     </div>
   );
 }

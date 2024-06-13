@@ -22,7 +22,7 @@ export default function Map({ markerData }) {
   const markerOptions1 = {
     title: "CurrentLocation",
     clickable: true,
-    draggable: true,
+    draggable: false,
     icon: customIcon1,
   };
 
