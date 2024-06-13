@@ -1,10 +1,26 @@
 // pages/AnimalMapPage.js
 import { Box } from '@chakra-ui/react';
-import AnimalMap from '../components/MapComponent2';
+import AnimalMap from '../components/ViewerMapComponent2';
+
+
+const markerData = [
+  {
+    geocode: [48.86, 2.3522],
+    popUp: "Hello Kevin, I am pop up 1",
+  },
+  {
+    geocode: [48.85, 2.3522],
+    popUp: "Hello kevin, I am pop up 2",
+  },
+  {
+    geocode: [48.855, 2.34],
+    popUp: "Hello kevin, I am pop up 3",
+  },
+];
 
 const AnimalMapPage = () => (
   <Box>
-    <AnimalMap />
+    <AnimalMap markerData={markerData} />
   </Box>
 );
 

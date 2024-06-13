@@ -9,36 +9,31 @@ export default function Map() {
   const userMarkerRef = useRef(null);
 
   // Custom Icon options
-  const customIcon1_Options = {
+  const customIcon1 = leaflet.icon({
     // iconUrl: 'https://cdn-icons-png.flaticon.com/128/15615/15615194.png',
     // iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
     iconUrl: 'https://cdn-icons-png.flaticon.com/128/2702/2702604.png',
-    iconSize: [36, 36]
-  }
+    iconSize: [36, 36],
+  });
 
-  const customIcon2_Options = {
+  const customIcon2 = leaflet.icon({
     iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
-    iconSize: [34, 34]
-  }
-
-  // Creating a custom icon
-  const customIcon1 = leaflet.icon(customIcon1_Options);
-  const customIcon2 = leaflet.icon(customIcon2_Options);
+    iconSize: [34, 34],
+  });
 
   const markerOptions1 = {
     title: "CurrentLocation",
     clickable: true,
     draggable: true,
-    icon: customIcon1
-  }
+    icon: customIcon1,
+  };
 
   const markerOptions2 = {
     title: "OtherLocation",
     clickable: true,
     draggable: true,
-    icon: customIcon2
-  }
-
+    icon: customIcon2,
+  };
 
   const [userPosition, setUserPosition] = useLocalStorage("USER_MARKER", {
     latitude: 0,
@@ -50,24 +45,31 @@ export default function Map() {
 
   useEffect(() => {
     if (!mapRef.current) {
-      mapRef.current = leaflet.map("map").setView([userPosition.latitude, userPosition.longitude], 13);
+      const map = leaflet.map("map").setView([userPosition.latitude, userPosition.longitude], 13);
+      mapRef.current = map;
 
       leaflet.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      }).addTo(mapRef.current);
+      }).addTo(map);
 
-      mapRef.current.on("click", (e) => {
+      const handleMapClick = (e) => {
         const { lat: latitude, lng: longitude } = e.latlng;
         leaflet.marker([latitude, longitude], markerOptions2)
-          .addTo(mapRef.current)
+          .addTo(map)
           .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
 
         setNearbyMarkers((prevMarkers) => [
           ...prevMarkers,
           { latitude, longitude },
         ]);
-      });
+      };
+
+      map.on("click", handleMapClick);
+
+      return () => {
+        map.off("click", handleMapClick);
+      };
     }
   }, [setNearbyMarkers, userPosition.latitude, userPosition.longitude]);
 
