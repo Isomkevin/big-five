@@ -7,7 +7,6 @@ import useGeolocation from "../hooks/useGeolocation";
 export default function Map() {
   const mapRef = useRef(null);
   const userMarkerRef = useRef(null);
-
   // Custom Icon options
   const customIcon1 = leaflet.icon({
     // iconUrl: 'https://cdn-icons-png.flaticon.com/128/15615/15615194.png',
@@ -35,7 +34,7 @@ export default function Map() {
     icon: customIcon2,
   };
 
-  const [userPosition, setUserPosition] = useLocalStorage("USER_MARKER", {
+  const [userPosition, setUserPosition, clearLocalStorage, clearItem] = useLocalStorage("USER_MARKER", {
     latitude: 0,
     longitude: 0,
   });
@@ -55,7 +54,7 @@ export default function Map() {
 
       const handleMapClick = (e) => {
         const { lat: latitude, lng: longitude } = e.latlng;
-        leaflet.marker([latitude, longitude], markerOptions2)
+        const marker = leaflet.marker([latitude, longitude], markerOptions2)
           .addTo(map)
           .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
 
@@ -63,6 +62,13 @@ export default function Map() {
           ...prevMarkers,
           { latitude, longitude },
         ]);
+
+        marker.on('click', () => {
+          map.removeLayer(marker);
+          setNearbyMarkers((prevMarkers) =>
+            prevMarkers.filter((m) => m.latitude !== latitude && m.longitude !== longitude)
+          );
+        });
       };
 
       map.on("click", handleMapClick);
@@ -75,9 +81,16 @@ export default function Map() {
 
   useEffect(() => {
     nearbyMarkers.forEach(({ latitude, longitude }) => {
-      leaflet.marker([latitude, longitude], markerOptions2)
+      const marker = leaflet.marker([latitude, longitude], markerOptions2)
         .addTo(mapRef.current)
         .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
+
+      marker.on('click', () => {
+        mapRef.current.removeLayer(marker);
+        setNearbyMarkers((prevMarkers) =>
+          prevMarkers.filter((m) => m.latitude !== latitude && m.longitude !== longitude)
+        );
+      });
     });
   }, [nearbyMarkers]);
 
@@ -102,5 +115,29 @@ export default function Map() {
     }
   }, [location, setUserPosition]);
 
-  return <div id="map" style={{ height: "100vh" }}></div>;
+  const handleClearAllMarkers = () => {
+    nearbyMarkers.forEach(({ latitude, longitude }) => {
+      const marker = leaflet.marker([latitude, longitude], markerOptions2);
+      mapRef.current.removeLayer(marker);
+    });
+    setNearbyMarkers([]);
+    clearItem("NEARBY_MARKERS");
+  };
+
+  const handleClearUserMarker = () => {
+    if (userMarkerRef.current) {
+      mapRef.current.removeLayer(userMarkerRef.current);
+      userMarkerRef.current = null;
+      setUserPosition({ latitude: 0, longitude: 0 });
+      clearItem("USER_MARKER");
+    }
+  };
+
+  return (
+    <div>
+      <div id="map" style={{ height: "100vh" }}></div>
+      <button onClick={handleClearAllMarkers}>Clear All Markers</button>
+      <button onClick={handleClearUserMarker}>Clear User Marker</button>
+    </div>
+  );
 }

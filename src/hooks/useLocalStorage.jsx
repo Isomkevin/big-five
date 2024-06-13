@@ -1,5 +1,4 @@
-import { useEffect } from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function useLocalStorage(key, initialValue) {
   const [value, setValue] = useState(() => {
@@ -11,5 +10,13 @@ export default function useLocalStorage(key, initialValue) {
     localStorage.setItem(key, JSON.stringify(value));
   }, [key, value]);
 
-  return [value, setValue];
+  const clearLocalStorage = () => {
+    localStorage.clear();
+  };
+
+  const clearItem = (keyToRemove) => {
+    localStorage.removeItem(keyToRemove);
+  };
+
+  return [value, setValue, clearLocalStorage, clearItem];
 }
