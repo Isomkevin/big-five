@@ -89,7 +89,7 @@ export default function Map() {
 
       userMarkerRef.current = leaflet.marker([location.latitude, location.longitude], markerOptions1)
         .addTo(mapRef.current)
-        .bindPopup("User");
+        .bindPopup("Your Current location");
 
       const el = userMarkerRef.current.getElement();
       if (el) {
