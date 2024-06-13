@@ -7,21 +7,37 @@ import useGeolocation from "../hooks/useGeolocation";
 export default function Map() {
   const mapRef = useRef(null);
   const userMarkerRef = useRef(null);
-  // Icon options
-  const iconOptions = {
-    iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
+
+  // Custom Icon options
+  const customIcon1_Options = {
+    // iconUrl: 'https://cdn-icons-png.flaticon.com/128/15615/15615194.png',
+    // iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
+    iconUrl: 'https://cdn-icons-png.flaticon.com/128/2702/2702604.png',
     iconSize: [36, 36]
   }
 
-  // Creating a custom icon
-  var customIcon = leaflet.icon(iconOptions);
+  const customIcon2_Options = {
+    iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
+    iconSize: [34, 34]
+  }
 
-  const markerOptions = {
-    title: "MyLocation",
+  // Creating a custom icon
+  const customIcon1 = leaflet.icon(customIcon1_Options);
+  const customIcon2 = leaflet.icon(customIcon2_Options);
+
+  const markerOptions1 = {
+    title: "CurrentLocation",
     clickable: true,
     draggable: true,
-    icon: customIcon
- }
+    icon: customIcon1
+  }
+
+  const markerOptions2 = {
+    title: "OtherLocation",
+    clickable: true,
+    draggable: true,
+    icon: customIcon2
+  }
 
 
   const [userPosition, setUserPosition] = useLocalStorage("USER_MARKER", {
@@ -43,7 +59,7 @@ export default function Map() {
 
       mapRef.current.on("click", (e) => {
         const { lat: latitude, lng: longitude } = e.latlng;
-        leaflet.marker([latitude, longitude], markerOptions)
+        leaflet.marker([latitude, longitude], markerOptions2)
           .addTo(mapRef.current)
           .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
 
@@ -57,7 +73,7 @@ export default function Map() {
 
   useEffect(() => {
     nearbyMarkers.forEach(({ latitude, longitude }) => {
-      leaflet.marker([latitude, longitude], markerOptions)
+      leaflet.marker([latitude, longitude], markerOptions2)
         .addTo(mapRef.current)
         .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
     });
@@ -71,7 +87,7 @@ export default function Map() {
         mapRef.current.removeLayer(userMarkerRef.current);
       }
 
-      userMarkerRef.current = leaflet.marker([location.latitude, location.longitude])
+      userMarkerRef.current = leaflet.marker([location.latitude, location.longitude], markerOptions1)
         .addTo(mapRef.current)
         .bindPopup("User");
 
