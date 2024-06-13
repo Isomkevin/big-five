@@ -50,34 +50,8 @@ export default function Map({ markerData }) {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
       }).addTo(map);
-
-      const handleMapClick = (e) => {
-        const { lat: latitude, lng: longitude } = e.latlng;
-        leaflet.marker([latitude, longitude], markerOptions2)
-          .addTo(map)
-          .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
-
-        setNearbyMarkers((prevMarkers) => [
-          ...prevMarkers,
-          { latitude, longitude },
-        ]);
-      };
-
-      map.on("click", handleMapClick);
-
-      return () => {
-        map.off("click", handleMapClick);
-      };
     }
-  }, [setNearbyMarkers, userPosition.latitude, userPosition.longitude]);
-
-  useEffect(() => {
-    nearbyMarkers.forEach(({ latitude, longitude }) => {
-      leaflet.marker([latitude, longitude], markerOptions2)
-        .addTo(mapRef.current)
-        .bindPopup(`lat: ${latitude.toFixed(2)}, long: ${longitude.toFixed(2)}`);
-    });
-  }, [nearbyMarkers]);
+  }, [userPosition.latitude, userPosition.longitude]);
 
   useEffect(() => {
     if (location.latitude && location.longitude) {
@@ -110,3 +84,5 @@ export default function Map({ markerData }) {
 
   return <div id="map" style={{ height: "100vh" }}></div>;
 }
+
+
