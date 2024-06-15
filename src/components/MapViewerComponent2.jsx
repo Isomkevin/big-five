@@ -14,8 +14,9 @@ export default function Map({ markerData }) {
     iconSize: [36, 36],
   });
 
-  const customIcon2 = leaflet.icon({
-    iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
+  const customIcon_lion = leaflet.icon({
+    // iconUrl: 'https://cdn-icons-png.flaticon.com/128/684/684908.png',
+    iconUrl: 'https://img.icons8.com/?size=48&id=33035&format=png',
     iconSize: [34, 34],
   });
 
@@ -30,7 +31,7 @@ export default function Map({ markerData }) {
     title: "OtherLocation",
     clickable: true,
     draggable: false,
-    icon: customIcon2,
+    icon: customIcon_lion,
   };
 
   const [userPosition, setUserPosition] = useLocalStorage("USER_MARKER", {
