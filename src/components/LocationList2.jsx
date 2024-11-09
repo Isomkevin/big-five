@@ -7,6 +7,8 @@ const parks = [
     imageUrl:
       'https://plus.unsplash.com/premium_photo-1661843615544-b2c973491c8b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8U2VyZW5nZXRpJTIwTmF0aW9uYWwlMjBQYXJrfGVufDB8fDB8fHww',
     animals: ['Lions', 'Elephants', 'Zebras', 'Giraffes'],
+    bestTimeToVisit: 'June to October',
+    activities: ['Game drives', 'Hot air ballooning', 'Bird watching'],
   },
   {
     name: 'Maasai Mara National Reserve',
@@ -14,6 +16,8 @@ const parks = [
     imageUrl:
       'https://images.unsplash.com/photo-1517384161621-5773b87f4cd4?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     animals: ['Wildebeest', 'Lions', 'Cheetahs', 'Elephants'],
+    bestTimeToVisit: 'July to October',
+    activities: ['Game drives', 'Cultural visits', 'Walking safaris'],
   },
   {
     name: 'Amboseli National Park',
@@ -21,6 +25,8 @@ const parks = [
     imageUrl:
       'https://plus.unsplash.com/premium_photo-1661811791855-532fdea19159?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8QW1ib3NlbGklMjBOYXRpb25hbCUyMFBhcmt8ZW58MHx8MHx8fDA%3D',
     animals: ['Elephants', 'Lions', 'Buffalo', 'Leopards'],
+    bestTimeToVisit: 'June to October',
+    activities: ['Game drives', 'Bird watching', 'Photography'],
   },
   {
     name: 'Bwindi Impenetrable National Park',
@@ -28,6 +34,8 @@ const parks = [
     imageUrl:
       'https://th.bing.com/th/id/OIP.dgzME0Ra3qn57rCaw8gJMwHaEK?rs=1&pid=ImgDetMain',
     animals: ['Mountain Gorillas', 'Chimpanzees', 'Elephants', 'Birds'],
+    bestTimeToVisit: 'June to August and December to February',
+    activities: ['Gorilla trekking', 'Bird watching', 'Nature walks'],
   },
   {
     name: 'Ngorongoro Conservation Area',
@@ -35,6 +43,8 @@ const parks = [
     imageUrl:
       'https://th.bing.com/th/id/OIP.wapPkB9bFb5Jts6Feq90jgHaE8?rs=1&pid=ImgDetMain',
     animals: ['Lions', 'Rhinos', 'Elephants', 'Leopards'],
+    bestTimeToVisit: 'June to October',
+    activities: ['Game drives', 'Cultural visits', 'Hiking'],
   },
   {
     name: 'Queen Elizabeth National Park',
@@ -42,16 +52,163 @@ const parks = [
     imageUrl:
       'https://th.bing.com/th/id/OIP.ZL4KB1aPUpC-5pTgI0ZPywAAAA?rs=1&pid=ImgDetMain',
     animals: ['Lions', 'Hippos', 'Elephants', 'Crocodiles'],
+    bestTimeToVisit: 'January to February and June to July',
+    activities: ['Game drives', 'Boat cruises', 'Bird watching'],
+  },
+  {
+    name: 'Kruger National Park',
+    location: 'South Africa',
+    imageUrl:
+      'https://plus.unsplash.com/premium_photo-1661899198211-2ae89411f5a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8S3J1Z2VyJTIwTmF0aW9uYWwlMjBQYXJrfGVufDB8fDB8fHww',
+    animals: ['Lions', 'Elephants', 'Leopards', 'Buffalo'],
+    bestTimeToVisit: 'May to September',
+    activities: ['Game drives', 'Guided walks', 'Bird watching'],
+  },
+  {
+    name: 'Etosha National Park',
+    location: 'Namibia',
+    imageUrl:
+      'https://plus.unsplash.com/premium_photo-1669749086758-6c11dab7947e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8RXRvc2hhJTIwTmF0aW9uYWwlMjBQYXJrfGVufDB8fDB8fHww', 
+    altImageUrl:
+      'https://plus.unsplash.com/premium_photo-1669749086758-6c11dab7947e?q=80&w=1171&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    animals: ['Lions', 'Elephants', 'Rhinos', 'Giraffes'],
+    bestTimeToVisit: 'May to October',
+    activities: ['Game drives', 'Photography', 'Camping'],
+  },
+  {
+    name: 'Chobe National Park',
+    location: 'Botswana',
+    imageUrl:
+      'https://www.chobe.com/assets/img/savute-safari-lodge-chobe-botswana.jpg',
+    animals: ['Elephants', 'Lions', 'Buffalo', 'Hippos'],
+    bestTimeToVisit: 'May to October',
+    activities: ['Game drives', 'Boat safaris', 'Bird watching'],
+  },
+  {
+    name: 'Hwange National Park',
+    location: 'Zimbabwe',
+    imageUrl:
+      'https://th.bing.com/th/id/OIP.MUjbUnY5B7XCc92dOdt-ggHaEG?rs=1&pid=ImgDetMain',
+    animals: ['Lions', 'Elephants', 'Rhinos', 'Cheetahs'],
+    bestTimeToVisit: 'August to October',
+    activities: ['Game drives', 'Walking safaris', 'Bird watching'],
+  },
+  {
+    name: 'Kidepo Valley National Park',
+    location: 'Uganda',
+    imageUrl:
+      'https://th.bing.com/th/id/R.e5105e91bf1cb5c5a8d4934d45efdd58?rik=vQbvzJ9w1o65sQ&pid=ImgRaw&r=0',
+    animals: ['Lions', 'Elephants', 'Buffalo', 'Giraffes'],
+    bestTimeToVisit: 'September to March',
+    activities: ['Game drives', 'Hiking', 'Cultural visits'],
+  },
+  {
+    name: 'Akagera National Park',
+    location: 'Rwanda',
+    imageUrl:
+      'https://www.jacadatravel.com/wp-content/uploads/2019/11/iStock-463143917.jpg',
+    animals: ['Lions', 'Elephants', 'Giraffes', 'Hippos'],
+    bestTimeToVisit: 'June to September',
+    activities: ['Game drives', 'Boat safaris', 'Bird watching'],
+  },
+  {
+    name: 'Addo Elephant National Park',
+    location: 'South Africa',
+    imageUrl:
+      'https://th.bing.com/th/id/OIP.4aqMB_H9XKcLxUB7ZioWCgHaFS?rs=1&pid=ImgDetMain',
+    animals: ['Elephants', 'Lions', 'Buffalo', 'Leopards'],
+    bestTimeToVisit: 'April to September',
+    activities: ['Game drives', 'Hiking', 'Bird watching'],
+  },
+  {
+    name: 'Tarangire National Park',
+    location: 'Tanzania',
+    imageUrl:
+      'https://th.bing.com/th/id/R.7cd61afa966360ac290922e8d848337d?rik=cQe%2fEZcsO%2fDxdg&pid=ImgRaw&r=0',
+    animals: ['Elephants', 'Lions', 'Zebras', 'Giraffes'],
+    bestTimeToVisit: 'June to October',
+    activities: ['Game drives', 'Walking safaris', 'Bird watching'],
+  },
+  {
+    name: 'South Luangwa National Park',
+    location: 'Zambia',
+    imageUrl:
+      'https://th.bing.com/th/id/OIP.B4KpSUMKACBb9jB05GGDxgHaE8?rs=1&pid=ImgDetMain',
+    animals: ['Lions', 'Leopards', 'Elephants', 'Hippos'],
+    bestTimeToVisit: 'May to October',
+    activities: ['Game drives', 'Walking safaris', 'Bird watching'],
+  },
+  {
+    name: 'Selous Game Reserve',
+    location: 'Tanzania',
+    imageUrl:
+      'https://th.bing.com/th/id/R.5c13eadd691cff9f564ecc41e3ef1173?rik=%2fT4Hi1o2ZRnh3A&pid=ImgRaw&r=0',
+    animals: ['Lions', 'Elephants', 'Giraffes', 'Hippos'],
+    bestTimeToVisit: 'June to October',
+    activities: ['Game drives', 'Boat safaris', 'Walking safaris'],
+  },
+  {
+    name: 'Murchison Falls National Park',
+    location: 'Uganda',
+    imageUrl:
+      'https://th.bing.com/th/id/OIP.Sn180w1DdjlkGhJvdujAZQHaFS?pid=ImgDet&w=474&h=338&rs=1',
+    animals: ['Lions', 'Elephants', 'Hippos', 'Crocodiles'],
+    bestTimeToVisit: 'December to February and June to September',
+    activities: ['Game drives', 'Boat cruises', 'Hiking'],
+  },
+  {
+    name: 'Tsavo National Park',
+    location: 'Kenya',
+    imageUrl:
+      'https://www.habariugandatours.com/wp-content/uploads/2020/11/Tsavo-East-National-Park.jpg',
+    animals: ['Elephants', 'Lions', 'Giraffes', 'Hippos'],
+    bestTimeToVisit: 'June to October',
+    activities: ['Game drives', 'Bird watching', 'Hiking'],
+  },
+  {
+    name: 'Ranthambore National Park',
+    location: 'India',
+    imageUrl:
+      'https://th.bing.com/th/id/OIP.O2bJSMQXsc6y7AKLB3FaRAHaFj?rs=1&pid=ImgDetMain',
+    animals: ['Tigers', 'Leopards', 'Sloth Bears', 'Deer'],
+    bestTimeToVisit: 'October to June',
+    activities: ['Game drives', 'Bird watching', 'Photography'],
+  },
+  {
+    name: 'Bandhavgarh National Park',
+    location: 'India',
+    imageUrl:
+      'https://static.toiimg.com/photo/msid-98361236,width-96,height-65.cms',
+    animals: ['Tigers', 'Leopards', 'Deer', 'Birds'],
+    bestTimeToVisit: 'October to June',
+    activities: ['Game drives', 'Bird watching', 'Photography'],
+  },
+  {
+    name: 'Yala National Park',
+    location: 'Sri Lanka',
+    imageUrl:
+      'https://th.bing.com/th/id/OIP.f2uAIUQWNvsge8ERsavXIQHaEK?rs=1&pid=ImgDetMain',
+    animals: ['Leopards', 'Elephants', 'Crocodiles', 'Birds', 'Tigers'],
+    bestTimeToVisit: 'February to June',
+    activities: ['Game drives', 'Bird watching', 'Photography'],
   },
 ];
 
+
 export default function TouristVenue() {
+  const handleCardClick = (parkName) => {
+    alert(`Welcome to ${parkName}`);
+    // Here you can also navigate to a detailed page or perform other actions
+  };
+
+
   return (
     <div className="grid grid-cols-1 gap-6 p-6 sm:grid-cols-2 lg:grid-cols-3">
       {parks.map((park) => (
         <div
           key={park.name}
           className="overflow-hidden rounded-lg bg-white shadow-md transition transform hover:scale-105 hover:shadow-lg"
+          onClick={() => handleCardClick(park.name)}
         >
           <img
             className="w-full h-48 object-cover"

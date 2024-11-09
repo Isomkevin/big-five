@@ -1,5 +1,5 @@
 // pages/HomePage.js
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import HeroSection from '../components/HeroSection';
 
 const HomePage = () => (

@@ -1,10 +1,10 @@
-// pages/AnimalMapPage.js
+// pages/DashboardPage.js
 import { Box } from '@chakra-ui/react';
-import AnimalMap from '../components/Dashboard';
+import Dashboard from '../components/DashboardComponent';
 
 const DashboardPage = () => (
   <Box>
-    <AnimalMap />
+    <Dashboard />
   </Box>
 );
 
